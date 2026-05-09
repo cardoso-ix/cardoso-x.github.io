@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background-color: #050510;
+  color: #eaeaea;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Efeito de grade no fundo */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Cabeçalho */
+header {
+  background-color: rgba(5, 5, 16, 0.92);
+  padding: 18px 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+nav ul a {
+  color: #a0a0c0;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+nav ul a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.07) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.05) 0%, transparent 70%);
+  top: 30%;
+  right: 10%;
+}
+
+.tag {
+  font-family: 'Orbitron', sans-serif;
+  background: transparent;
+  border: 1px solid #00ffff;
+  color: #00ffff;
+  padding: 6px 20px;
+  border-radius: 2px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  z-index: 1;
+}
+
+.hero h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  line-height: 1.2;
+  z-index: 1;
+}
+
+.hero h2 span {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 30px #00ffff;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #6060a0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+/* Botão */
+.botao {
+  position: relative;
+  background: transparent;
+  color: #00ffff;
+  padding: 16px 44px;
+  border: 2px solid #00ffff;
+  border-radius: 2px;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px #00ffff;
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.25), inset 0 0 16px rgba(0, 255, 255, 0.05);
+  transition: all 0.3s;
+  z-index: 1;
+}
+
+.botao:hover {
+  background: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), inset 0 0 30px rgba(0, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+/* Seções */
+section {
+  padding: 100px 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  position: relative;
+  z-index: 1;
+}
+
+section.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+}
+
+.linha {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  margin-bottom: 30px;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+section p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #8080a0;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
+
+/* Habilidades */
+.habilidades {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.habilidade {
+  background: transparent;
+  border: 1px solid #ff00ff;
+  color: #ff00ff;
+  padding: 8px 20px;
+  border-radius: 2px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px #ff00ff;
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.2);
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.habilidade:hover {
+  background: rgba(255, 0, 255, 0.1);
+  box-shadow: 0 0 16px rgba(255, 0, 255, 0.4);
+}
+
+/* Cards de projetos */
+.cards {
+  display: flex;
+  gap: 24px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: rgba(10, 10, 30, 0.8);
+  padding: 36px;
+  border-radius: 4px;
+  flex: 1;
+  min-width: 260px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #00ffff, #ff00ff);
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.card:hover {
+  border-color: #00ffff;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 255, 255, 0.15);
+}
+
+.card h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  margin-bottom: 12px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.card p {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.card .tecnologia {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #00ffff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px #00ffff;
+}
+
+/* Contato */
+.contato {
+  text-align: center;
+}
+
+.contato p {
+  margin-bottom: 30px;
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #050510;
+  border-top: 1px solid rgba(0, 255, 255, 0.1);
+  font-family: 'Orbitron', sans-serif;
+  color: #303050;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
