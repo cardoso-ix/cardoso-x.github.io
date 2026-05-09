@@ -12,7 +12,13 @@ let indicTexto = 0;
 let indicLetra = 0;
 let digitando = true;
 
-const elementoDigitacao = document.querySelector(".hero p");
+const elementoDigitacao = document.querySelector(".digitacao");
+
+// Cria o cursor piscante
+const cursor = document.createElement("span");
+cursor.classList.add("cursor");
+cursor.textContent = "_";
+elementoDigitacao.after(cursor);
 
 function digitar() {
   const textoAtual = textos[indicTexto];
@@ -42,17 +48,6 @@ function digitar() {
 digitar();
 
 // =====================
-// CURSOR PISCANTE
-// =====================
-const cursor = document.createElement("span");
-cursor.textContent = "_";
-cursor.style.color = "#00ffff";
-cursor.style.textShadow = "0 0 8px #00ffff";
-cursor.style.fontWeight = "bold";
-cursor.style.animation = "piscar 0.8s step-end infinite";
-elementoDigitacao.after(cursor);
-
-// =====================
 // ANIMAÇÃO DE ENTRADA DAS SEÇÕES
 // =====================
 const observer = new IntersectionObserver((entries) => {
@@ -63,10 +58,6 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll("section").forEach(sec => {
-  if (!sec.classList.contains("hero")) {
-    observer.observe(sec);
-  } else {
-    sec.classList.add("visivel");
-  }
+document.querySelectorAll("section:not(.hero)").forEach(sec => {
+  observer.observe(sec);
 });

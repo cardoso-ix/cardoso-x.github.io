@@ -93,6 +93,8 @@ nav ul a:hover {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  opacity: 1;
+  transform: none;
 }
 
 .hero::before {
@@ -141,7 +143,6 @@ nav ul a:hover {
   z-index: 1;
 }
 
-/* Neon pulsante no nome Eduardo */
 .nome-glitch {
   color: #00ffff;
   display: inline-block;
@@ -168,7 +169,7 @@ nav ul a:hover {
 }
 
 /* Digitação */
-.hero p {
+.digitacao {
   font-size: 18px;
   color: #00ffff;
   letter-spacing: 3px;
@@ -176,6 +177,14 @@ nav ul a:hover {
   text-shadow: 0 0 8px #00ffff;
   z-index: 1;
   min-height: 30px;
+}
+
+.cursor {
+  display: inline-block;
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff;
+  font-weight: bold;
+  animation: piscar 0.8s step-end infinite;
 }
 
 @keyframes piscar {
@@ -220,6 +229,13 @@ section {
   z-index: 1;
 }
 
+section.hero {
+  opacity: 1;
+  transform: none;
+  max-width: 100%;
+  padding: 0;
+}
+
 section.visivel {
   opacity: 1;
   transform: translateY(0);
@@ -250,6 +266,25 @@ section p {
   color: #8080a0;
   letter-spacing: 0.5px;
   margin-top: 10px;
+}
+
+/* Foto e Sobre */
+.sobre-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 10px;
+}
+
+.foto-perfil {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.2);
+  flex-shrink: 0;
 }
 
 /* Habilidades */
@@ -362,11 +397,32 @@ footer {
   letter-spacing: 2px;
 }
 
+.footer-links {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footer-links a {
+  color: #00ffff;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px #00ffff;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffffff;
+}
+
 /* =====================
    RESPONSIVIDADE
    ===================== */
 
-/* Tablet - até 768px */
 @media (max-width: 768px) {
   header {
     padding: 16px 24px;
@@ -391,7 +447,7 @@ footer {
     padding: 0 20px;
   }
 
-  .hero p {
+  .digitacao {
     font-size: 13px;
     letter-spacing: 2px;
     padding: 0 20px;
@@ -424,9 +480,19 @@ footer {
   .card {
     min-width: unset;
   }
+
+  .sobre-conteudo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .foto-perfil {
+    width: 140px;
+    height: 140px;
+    align-self: center;
+  }
 }
 
-/* Celular - até 480px */
 @media (max-width: 480px) {
   header {
     padding: 14px 16px;
@@ -451,7 +517,7 @@ footer {
     padding: 0 16px;
   }
 
-  .hero p {
+  .digitacao {
     font-size: 11px;
     letter-spacing: 1px;
   }
@@ -493,22 +559,4 @@ footer {
     font-size: 10px;
     padding: 20px 16px;
   }
-}
-.footer-links {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-}
-
-.footer-links a {
-  color: #00ffe7;
-  text-decoration: none;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  transition: color 0.3s;
-}
-
-.footer-links a:hover {
-  color: #ffffff;
 }
